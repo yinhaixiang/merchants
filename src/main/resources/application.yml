@@ -6,7 +6,7 @@ spring:
     username: root
     password: sean
   kafka:
-    bootstrap-servers: 118.24.38.184:9092
+    bootstrap-servers: 127.0.0.1:9092
     consumer:
       group-id: passbook
     listener:
