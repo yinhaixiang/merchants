@@ -39,5 +39,30 @@ public class MerchantsServiceTest {
         System.out.println(JSON.toJSONString(merchantsService.createMerchants(request)));
     }
 
+    @Test
+    public void testBuildMerchantsInfoById() {
+        System.out.println(JSON.toJSONString(merchantsService.buildMerchantsInfoById(24)));
+    }
+
+
+    @Test
+    @Transactional
+    public void testDropPassTemplate() {
+
+        PassTemplate passTemplate = new PassTemplate();
+        passTemplate.setId(24);
+        passTemplate.setTitle("慕课-1");
+        passTemplate.setSummary("简介: 慕课");
+        passTemplate.setDesc("详情: 慕课");
+        passTemplate.setLimit(10000L);
+        passTemplate.setHasToken(false);
+        passTemplate.setBackground(2);
+        passTemplate.setStart(DateUtils.addDays(new Date(), -10));
+        passTemplate.setEnd(DateUtils.addDays(new Date(), 10));
+
+        System.out.println(JSON.toJSONString(
+                merchantsService.dropPassTemplate(passTemplate)
+        ));
+    }
 
 }
